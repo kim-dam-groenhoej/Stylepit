@@ -1,0 +1,57 @@
+﻿@model Stylepit.ViewModels.ProductVM
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h4>ProductList</h4>
+<table class="table table-striped">
+    @foreach (var category in Model.Categories)
+    {
+        <thead>
+            <tr>
+                <td>
+                    <label class="label label-primary">
+                        @category.Title
+                    </label>
+                </td>
+            </tr>
+
+        </thead>
+        <tr>
+            <td>
+                @if (!category.Products.Any())
+                {
+                    <label class="label label-info">Ingen produkter</label>
+                }
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        foreach (var product in category.Products)
+        {
+            <tr>
+                <td>
+                    @product.Title
+                </td>
+                <td>
+                    @foreach (var item in Model.SizeProducts.Where(x => x.ProductId == product.Id))
+                    {
+                        @item.Size.Title
+                    }
+
+                </td>
+                <td class="text-right">
+                    <a href="/Admin/ProductEdit/@product.Id" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></a>
+                    <a href="/Admin/ProductDelete/@product.Id" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+
+
+
+
+    }
+</table>
+<a href="/Admin/ProductCreate" class="btn btn-success"><i class="fa fa-plus"></i> tilføj</a>

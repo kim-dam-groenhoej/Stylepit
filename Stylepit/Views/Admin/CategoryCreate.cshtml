@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "CategoryCreate";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>CategoryCreate</h2>
+<form role="form" action="/Admin/CategoryCreate" method="post">
+    <div class="form-group">
+        <label class="control-label" for="title">Kategori navn</label>
+        <input type="text" class="form-control" name="Title" placeholder="Enter Title">
+    </div>
+    <button class="btn btn-success" type="submit">
+        <i class="fa fa-check"></i> tilføj
+    </button>
+</form>

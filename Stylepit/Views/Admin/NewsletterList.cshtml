@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Stylepit.Models.Newsletter>
+@{
+    ViewBag.Title = "NewsletterList";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>NewsletterList</h2>
+<table>
+    <thead>
+        <tr>
+            <td>
+                <label class="label label-primary">
+                    Titel
+                </label>
+            </td>
+            <td>
+                <label class="label label-primary">
+                    Content
+                </label>
+            </td>
+        </tr>
+    </thead>
+    @foreach (var newsletter in Model)
+    {
+        <tr>
+            <td>@newsletter.Title</td>
+            @*<td>@Html.Raw(newsletter.HTMLContent)</td>*@
+            <td class="text-right">
+                <a href="/Admin/NewsletterSend/@newsletter.Id" class="btn btn-sm btn-default"><i class="fa fa-send"></i></a>
+            </td>
+        </tr>
+
+
+    }
+
+</table>

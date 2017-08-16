@@ -1,0 +1,82 @@
+﻿@model Stylepit.ViewModels.ProductVM
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<div class="row row-padding">
+    <div class="col col-6">
+        <figure>
+            <img src="/Content/images/@Model.product.ThumbImg" id="elevate" class="img-fluid" alt="Alternate Text" data-zoom-image="/Content/images/@Model.product.ThumbImg" />
+            <figcaption>text</figcaption>
+        </figure>
+    </div>
+    <div class="col col-6">
+        <form action="/Shop/AddToCart" method="post" id="addToCart">
+            <input type="hidden" name="productId" value="@Model.product.Id" />
+
+            <div class="form-group">
+                <h1>
+                    @Model.product.Title
+                </h1>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="price" value="@Model.product.Price" />
+                @Model.product.Price
+            </div>
+            <div class="col col-4">
+                <div class="form-group">
+                    <input type="number" name="amount" class="form-control" />
+                </div>
+            </div>
+            <div class="col col-4">
+                <div class="form-group">
+                    <select name="size" class="form-control">
+                        @foreach (var item in Model.Sizes)
+            {
+                            <option value="@item.Title">@item.Title ml</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="Tilføj til kurv" />
+        </form>
+
+    </div>
+
+    <div class="col-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#profile" role="tab" data-toggle="tab">profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">buzz</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#references" role="tab" data-toggle="tab">references</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="profile">...</div>
+            <div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>
+            <div role="tabpanel" class="tab-pane fade" id="references">ccc</div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery.elevateZoom-3.0.8.min.js"></script>
+    <script>
+
+        $("#elevate").elevateZoom({
+            zoomType: "inner",
+            cursor: "crosshair",
+            zoomWindowFadeIn: 300,
+            zoomWindowFadeOut: 300
+        });
+    </script>
+}

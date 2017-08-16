@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Stylepit.Models.Category>
+
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>CategoryList</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>
+                <label class="label label-primary">
+                    Kategori
+                </label>
+            </td>
+            <td></td>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Title
+        </td>
+        <td class="text-right">
+            <a href="/Admin/CategoryEdit/@item.Id" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></a>
+            <a href="/Admin/CategoryDelete/@item.Id" class="btn btn-sm btn-primary"><i class="fa fa-archive"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
+<a href="/Admin/CategoryCreate" class="btn btn-success"><i class="fa fa-plus"></i> tilføj</a>

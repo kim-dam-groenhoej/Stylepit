@@ -1,0 +1,49 @@
+﻿@model Stylepit.ViewModels.NewsletterVM
+@{
+    ViewBag.Title = "NewsletterSend";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>NewsletterSend</h2>
+
+@if (Model.Newsletter != null)
+{
+    <form action="/admin/NewsletterSend" method="post">
+        <div class="form-group">
+            <select name="Email" multiple class="form-control">
+                @foreach (var subscriber in Model.Subscribers.Where(x => x.IsSubscribed == true))
+                {
+                    <option value="@subscriber.Email">@subscriber.Email</option>
+                }
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label>
+                @Model.Newsletter.Title
+            </label>
+            <input type="hidden" name="title" id="title" value="@Model.Newsletter.Title" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="HTMLContent">HTMLContent</label>
+            <input type="text" class="form-control" id="summernote" name="HTMLContent" value=" @Model.Newsletter.HTMLContent" />
+
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+} else
+{
+    <span>Newsletter findes ikke</span>
+}
+@section Scripts{
+
+    <!-- include summernote css/js-->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote();
+        });
+    </script>
+}

@@ -1,0 +1,30 @@
+﻿@model  IEnumerable<Stylepit.Models.ApplicationUser>
+@{
+    ViewBag.Title = "RoleList";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+
+}
+<h2>RoleList</h2>
+
+<table class="table table-striped">
+    @foreach (var item in ViewBag.AllRoles)
+    {
+
+        <tr>
+            <td>@item.Name</td>
+            <td>
+            </td>
+            <td class="text-right">
+                <a href="/" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></a>
+                <a href="/" onclick="" class="btn btn-sm btn-danger"><i class="fa fa-archive"></i></a>
+            </td>
+
+        </tr>
+
+
+    }
+
+</table>
+<a href="/Account/CreateRole" class="btn btn-success"><i class="fa fa-plus"></i> tilføj</a>
+
+

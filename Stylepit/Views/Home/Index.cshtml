@@ -1,0 +1,65 @@
+﻿@model Stylepit.ViewModels.ProductVM
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row row-padding product-list">
+    <div class="owl-carousel">
+        @foreach (var itemsOnsale in Model.ProductsOnSale)
+        {
+            <div class="maintain-space">
+                <a href="/Shop/ProductDetail/@itemsOnsale.Id">
+                    <div class="card card-info">
+                        <div class="cover-image" style="background-image: url(/Content/images/@itemsOnsale.ThumbImg) ">
+
+                        </div>
+                        <div class="card-block">
+                            <span class="onsale">TILBUD!</span>
+                            <h4 class="card-title">@itemsOnsale.Title</h4>
+                            <div class="card-text">
+                                @itemsOnsale.Description
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            DKK @itemsOnsale.Price
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        }
+    </div>
+
+</div>
+@*@foreach (var itemsNew in Model.ProductsNew)
+    {
+        <div class="col-3">
+            <div class="card">
+                <img class="product-img-top img-fluid" src="/Content/images/@itemsNew.ThumbImg" alt="Card image cap">
+                <div class="product-block">
+                    <h4 class="product-title">@itemsNew.Title</h4>
+                    <p class="product-text">@itemsNew.Description</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    }*@
+<style>
+    #info-box {
+        display: none;
+    }
+</style>
+<div class="alert" role="alert" id="info-box">
+</div>
+<form action="/Home/SignUpNewsletter" id="signup-newsletter" method="post">
+
+    <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="gi mig dit navn" />
+    </div>
+    <div class="form-group">
+        <input type="text" name="email" placeholder="gi mig din email" />
+    </div>
+    <input type="submit" value="Tilmeld" />
+</form>

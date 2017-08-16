@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "NewsletterCreate";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>NewsletterCreate</h2>
+
+<form action="/Admin/NewsletterCreate" method="post">
+    <div class="form-group">
+        <label class="control-label" for="title">Newsletter Titel</label>
+        <input type="text" class="form-control" name="Title" placeholder="Enter Titel">
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="title">Newsletter Content</label>
+        <textarea name="HTMLContent" id="summernote" class="form-control">
+
+    </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> tilføj</button>
+</form>
+@section Scripts{
+    
+    <!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote();
+        });
+    </script>
+    }

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "SizeCreate";
+    Layout = "~/Views/Shared/Backend/_Layout.cshtml";
+}
+
+<h2>SizeCreate</h2>
+
+<form role="form" action="/Admin/SizeCreate" method="post">
+    <div class="form-group">
+        <label class="control-label" for="title">Størrelses navn</label>
+        <input type="text" class="form-control" name="Title" placeholder="Enter Title">
+    </div>
+    <button class="btn btn-success" type="submit">
+        <i class="fa fa-check"></i> tilføj
+    </button>
+</form>

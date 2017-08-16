@@ -1,0 +1,34 @@
+﻿@model Stylepit.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+}
+
+<table class="table table-striped" id="testloading">
+    @foreach (var prod in Model.OrderItems)
+    {
+        <tr>
+            <td>
+                @prod.Product.Title
+            </td>
+            <td>
+                @prod.Amount
+            </td>
+            <td>
+               DKK @prod.Price
+            </td>
+            <td>
+                <form action="/Shop/RemoveFromCart" id="deleteFromCart" method="post">
+                    <input type="hidden" name="id" value="@prod.Id" />
+                    <button type="submit" id="deleteItem" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </form>
+            </td>
+        </tr>
+    }
+
+    <tfoot>
+        <tr>
+            <td><a href="/shop/checkout" class="btn btn-primary">Checkout</a></td>
+        </tr>
+    </tfoot>
+</table>

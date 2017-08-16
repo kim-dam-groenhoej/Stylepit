@@ -1,0 +1,16 @@
+﻿@model Stylepit.Models.Cart
+
+@if (Model == null)
+{
+    <text>
+        Kurven er tom
+    </text>
+}
+else
+{
+    <a class="btn btn-primary" href="/Shop/ShowCart/@Model.Id">
+
+        @Model.OrderItems.Count()
+
+    </a>
+}
