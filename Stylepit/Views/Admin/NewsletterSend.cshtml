@@ -8,7 +8,7 @@
 
 @if (Model.Newsletter != null)
 {
-    <form action="/admin/NewsletterSend" method="post">
+    <form action="/admin/Admin/NewsletterSend" method="post">
         <div class="form-group">
             <select name="Email" multiple class="form-control">
                 @foreach (var subscriber in Model.Subscribers.Where(x => x.IsSubscribed == true))

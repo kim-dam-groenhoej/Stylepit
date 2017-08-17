@@ -41,20 +41,21 @@ $("#signup-newsletter").on("submit", function (event) {
 
 
 
+$(document).ready(function () {
+    $("#addToCart", ".addToCart").on("submit", function (event) {
+        var $this = $(this);
+        var values = $this.serialize();
 
-$("#addToCart").on("submit", function (event) {
-    var $this = $(this);
-    var values = $this.serialize();
+        $.ajax({
+            type: $this.attr('method'),
+            url: $this.attr('action'),
+            data: values
+        }).done(function () {
+            $("#cart-container").load("/Shop/GetCart")
+        }),
 
-    $.ajax({
-        type: $this.attr('method'),
-        url: $this.attr('action'),
-        data: values
-    }).done(function () {
-        $("#cart-container").load("/Shop/GetCart")
-    }),
-
-        event.preventDefault();
+            event.preventDefault();
+    });
 });
 
 

@@ -20,6 +20,7 @@ namespace Stylepit.Controllers
             ProductVM vm = new ProductVM()
             {
                 ProductsOnSale = db.Products.Where(x => x.OnSale == true).ToList(),
+                Sizes = db.Sizes.ToList(),
                 ProductsNew = db.Products.Where(x => x.DateCreated >= mydate).ToList()
             };
 

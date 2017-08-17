@@ -24,10 +24,26 @@
 
                         <div class="card-footer">
                             DKK @itemsOnsale.Price
+                           
                         </div>
                     </div>
                 </a>
-            </div>
+
+                <form action="/Shop/AddToCart" method="post" class="addToCart">
+                    <input type="hidden" name="productId" value="@itemsOnsale.Id" />
+                    <input type="hidden" name="amount" value="1" />
+                    <input type="hidden" name="price" value="@itemsOnsale.Price" />
+                    <select name="size" class="form-control">
+                        @foreach (var item in Model.Sizes)
+                        {
+                            <option value="@item.Title">@item.Title ml</option>
+                        }
+
+                    </select>
+
+                    <input type="submit" value="Tilføj til kurv" />
+                </form>
+          </div>
 
         }
     </div>
