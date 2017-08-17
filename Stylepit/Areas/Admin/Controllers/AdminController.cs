@@ -54,11 +54,6 @@ namespace Stylepit.Areas.Admin.Controllers
             prod.Title = Title;
             prod.Description = Description;
             prod.Price = Price;
-            prod.InStock = false;
-            if (Amount > 0)
-            {
-                prod.InStock = true;
-            }
             prod.Amount = Amount;
             prod.OnSale = false;
             if (OnSale != null)
@@ -92,16 +87,11 @@ namespace Stylepit.Areas.Admin.Controllers
                 Title = Title,
                 Description = Description,
                 Price = Price,
-                InStock = false,
                 CategoryId = CategoryId,
                 ThumbImg = file.FileName,
                 BrandId = BrandId
             };
 
-            if (Amount > 0)
-            {
-                prod.InStock = true;
-            }
             prod.Amount = Amount;
             prod.OnSale = false;
             if (OnSale == "on")

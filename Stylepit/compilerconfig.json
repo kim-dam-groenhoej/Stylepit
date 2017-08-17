@@ -6,5 +6,9 @@
   {
     "outputFile": "Content/styles/css/frontend.css",
     "inputFile": "Content/styles/scss/frontend.scss"
+  },
+  {
+    "outputFile": "Scripts/main.es5.js",
+    "inputFile": "Scripts/main.js"
   }
 ]
